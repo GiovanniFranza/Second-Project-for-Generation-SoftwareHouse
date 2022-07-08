@@ -13,8 +13,8 @@
 
             <h1>Email</h1>
             <asp:TextBox ID="txtEmail" placeholder="Email" runat="server"></asp:TextBox>
-            <asp:TextBox ID="txtPassword" placeholder="Password" runat="server"></asp:TextBox>
-            <asp:Button ID="btnIniva" runat="server" Text="Spedisci" />
+            <asp:TextBox ID="txtPassword" placeholder="Password" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:Button ID="btnIniva" runat="server" Text="Spedisci" OnClick="btnIniva_Click" />
         </div>
     </form>
 </body>
