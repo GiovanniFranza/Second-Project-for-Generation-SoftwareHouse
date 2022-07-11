@@ -10,8 +10,8 @@ public partial class Default3 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         CaricaGriglia();
-    }
 
+    }
 
     #region Metodi
     public void CaricaGriglia()
@@ -24,6 +24,12 @@ public partial class Default3 : System.Web.UI.Page
     #endregion Metodi
 
     #region Eventi
+    protected void griglia_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = griglia.SelectedRow;
+        Session["id"] = row.Cells[1].Text;
+    }
+
     protected void btnAggiorna_Click(object sender, EventArgs e)
     {
         CaricaGriglia();

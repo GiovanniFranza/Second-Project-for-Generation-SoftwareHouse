@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-
 public class TIPOLOGIASPESA
 {
 
@@ -45,8 +44,8 @@ public class TIPOLOGIASPESA
         CONNESSIONE c = new CONNESSIONE();
         SqlCommand cmd = new SqlCommand();
 
-        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
         cmd.CommandText = "TIPOLOGIESPESE_Insert";
+        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
 
         c.EseguiSpCmdParam(cmd);
     }
@@ -86,12 +85,11 @@ public class TIPOLOGIASPESA
     }
     public DataTable Select(int codice)
     {
-
         CONNESSIONE c = new CONNESSIONE();
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", codiceTipoSpesa);
+        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", codice);
         cmd.CommandText = "TIPOLOGIESPESE_TEXTBOX";
 
         return dt = c.EseguiSpSelectParam(cmd);

@@ -22,13 +22,13 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaContrattiPoPup : Sys
             return;
         }
 
-        TIPOLOGIASPESA ts = new TIPOLOGIASPESA();
+        TIPOLOGIECONTRATTI tc = new TIPOLOGIECONTRATTI();
 
         string descrizione = txtTipContr.Text.Trim();
-        ts.Descrizione = descrizione;
+        tc.Descrizione = descrizione;
 
         //Verifico se esiste
-        if (ts.CheckOne(descrizione))
+        if (tc.CheckOne(descrizione))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dato già presente')", true);
             return;
@@ -36,6 +36,6 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaContrattiPoPup : Sys
         }
 
         //Inserimento
-        ts.CRUD(descrizione);
+        tc.CRUD(descrizione);
     }
 }

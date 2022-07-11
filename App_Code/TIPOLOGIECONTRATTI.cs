@@ -9,13 +9,12 @@ public class TIPOLOGIECONTRATTI
 {
     #region Membri
     
-    public int codiceTipoContratto;
-    public string descrizioneTipoContratto;
+    private int codiceTipoContratto;
+    private string descrizioneTipoContratto;
 
     #endregion Membri
 
-    #region Costruttore  
-    
+    #region Costruttore   
     public TIPOLOGIECONTRATTI()
     {
 
@@ -39,13 +38,15 @@ public class TIPOLOGIECONTRATTI
     #endregion Proprietà
 
     #region Metodi
-    public bool CheckOne(int codice)
+    public bool CheckOne(string descrizione)
     {
         SqlCommand cmd = new SqlCommand();
-        cmd.CommandText = "TIPOLOGIECONTRATTI_CheckOne";
-        cmd.Parameters.AddWithValue("@CodiceTipoContratto", codice);
         CONNESSIONE c = new CONNESSIONE();
         DataTable dt = new DataTable();
+
+        cmd.CommandText = "TIPOLOGIECONTRATTI_CheckOne";
+        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", descrizione);
+        
         dt = c.EseguiSpSelectParam(cmd);
         return dt.Rows.Count > 0;
     } 
@@ -59,7 +60,7 @@ public class TIPOLOGIECONTRATTI
         
         c.EseguiSpCmdParam(cmd);
     }
-    public void CRUD(string descrizione, int codice)
+    public void CRUD(int codice,string descrizione)
     {
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();

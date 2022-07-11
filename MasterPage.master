@@ -79,8 +79,8 @@
                         <div class="dropdown">
                             <button class="dropbtn">Contratti</button>
                             <div class="dropdown-content">
-                                <a href="InserisciContratti.aspx">Inserisci</a>
-                                <a href="ModificaContratti.aspx">Modifica</a>
+                                <a href="InserisciTipologiaContratti.aspx">Inserisci</a>
+                                <a href="ModificaTipologiaContratti.aspx">Modifica</a>
                             </div>
                         </div>
                     </li>
