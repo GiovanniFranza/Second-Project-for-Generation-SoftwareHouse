@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/stile.css" rel="stylesheet" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <div id="header">
+                <img id="logo" src="img/logo.jpg" /><br />
+            </div>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Spese</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciSpese.aspx">Inserisci</a>
+                                <a href="ModificaSpese.aspx">Modifica</a>
+                                <a href="EliminaSpese.aspx">Elimina</a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Tipi Spese</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciTipologiaSpese.aspx">Inserisci</a>
+                                <a href="ModificaTipologiaSpese.aspx">Modifica</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Marche</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciMarche.aspx">Inserisci</a>
+                                <a href="ModificaMarche.aspx">Modifica</a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Modelli</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciModelli.aspx">Inserisci</a>
+                                <a href="ModificaModello.aspx">Modifica</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Parco Auto</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciParcoAuto.aspx">Inserisci</a>
+                                <a href="ModificaParcoAuto.aspx">Modifica</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Clienti</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciClienti.aspx">Inserisci</a>
+                                <a href="ModificaClienti.aspx">Modifica</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Contratti</button>
+                            <div class="dropdown-content">
+                                <a href="InserisciContratti.aspx">Inserisci</a>
+                                <a href="ModificaContratti.aspx">Modifica</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Contabilità</button>
+                            <div class="dropdown-content">
+                                <a href="contabilita.aspx">Contabilità</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div id="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <div id="footer">
+                Auto Brovia srl
+                <br />
+                Via le Mani dagli Occhi 46
+                <br />
+                24100 Bergamo (BG)
+                <br />
+                CF/P.IVA 0365984545
+            </div>
+        </div>
+    </form>
+</body>
+</html>
