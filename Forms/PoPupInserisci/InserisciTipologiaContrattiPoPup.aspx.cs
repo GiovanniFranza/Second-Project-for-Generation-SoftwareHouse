@@ -5,18 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Forms_PoPupInserisci_InserisciTipologiaSpesePoPup : System.Web.UI.Page
+public partial class Forms_PoPupInserisci_InserisciTipologiaContrattiPoPup : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
 
-    #region Eventi
     protected void btnInserisci_Click(object sender, EventArgs e)
     {
+
         //Controlli Formali
-        if (string.IsNullOrEmpty(txtTipologiaSpese.Text))
+        if (string.IsNullOrEmpty(txtTipContr.Text.Trim()))
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
             return;
@@ -24,7 +24,7 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaSpesePoPup : System.
 
         TIPOLOGIASPESA ts = new TIPOLOGIASPESA();
 
-        string descrizione = txtTipologiaSpese.Text.Trim();
+        string descrizione = txtTipContr.Text.Trim();
         ts.Descrizione = descrizione;
 
         //Verifico se esiste
@@ -32,11 +32,10 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaSpesePoPup : System.
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ATTENZIONE", "alert('Dato già presente')", true);
             return;
+
         }
 
         //Inserimento
         ts.CRUD(descrizione);
     }
-
-    #endregion Eventi
 }

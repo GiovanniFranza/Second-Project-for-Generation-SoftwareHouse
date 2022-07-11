@@ -12,7 +12,7 @@ public class TIPOLOGIASPESA
     #region Membri
 
     private int codiceTipoSpesa;
-    private string DescrizioneTipoSpesa;
+    private string descrizioneTipoSpesa;
 
     #endregion Membri
 
@@ -33,8 +33,8 @@ public class TIPOLOGIASPESA
 
     public string Descrizione
     {
-        set { DescrizioneTipoSpesa = value; }
-        get { return DescrizioneTipoSpesa; }
+        set { descrizioneTipoSpesa = value; }
+        get { return descrizioneTipoSpesa; }
     }
 
     #endregion Proprietà
@@ -46,8 +46,8 @@ public class TIPOLOGIASPESA
         SqlCommand cmd = new SqlCommand();
 
         cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
-
         cmd.CommandText = "TIPOLOGIESPESE_Insert";
+
         c.EseguiSpCmdParam(cmd);
     }
     public void CRUD(int codiceTipoSpesa, string descrizione)
@@ -84,13 +84,13 @@ public class TIPOLOGIASPESA
         cmd.CommandText = "TIPOLOGIESPESE_SelectAll";
         return c.EseguiSpSelectParam(cmd);
     }
-
     public DataTable Select(int codice)
     {
 
         CONNESSIONE c = new CONNESSIONE();
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
+
         cmd.Parameters.AddWithValue("@CodiceTipoSpesa", codiceTipoSpesa);
         cmd.CommandText = "TIPOLOGIESPESE_TEXTBOX";
 
