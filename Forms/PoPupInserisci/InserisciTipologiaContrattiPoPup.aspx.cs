@@ -25,7 +25,6 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaContrattiPoPup : Sys
         TIPOLOGIECONTRATTI tc = new TIPOLOGIECONTRATTI();
 
         string descrizione = txtTipContr.Text.Trim();
-        tc.Descrizione = descrizione;
 
         //Verifico se esiste
         if (tc.CheckOne(descrizione))
@@ -36,6 +35,6 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaContrattiPoPup : Sys
         }
 
         //Inserimento
-        tc.CRUD(descrizione);
+        tc.Insert(descrizione);
     }
 }

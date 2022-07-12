@@ -26,13 +26,13 @@ public class TIPOLOGIECOMMESSA
     #region Proprietà
     public int Codice
     {
-        set { codiceTipoCommessa = value; }
+        private set { codiceTipoCommessa = value; }
         get { return codiceTipoCommessa; }
     }
 
     public string Descrizione
     {
-        set { descrizioneTipoCommessa = value; }
+        private set { descrizioneTipoCommessa = value; }
         get { return descrizioneTipoCommessa; }
     }
 
@@ -41,33 +41,40 @@ public class TIPOLOGIECOMMESSA
     #region Metodi
     public bool CheckOne(string descrizione)
     {
+        this.Descrizione = descrizione;
+
         CONNESSIONE c = new CONNESSIONE();
         SqlCommand cmd = new SqlCommand();
         DataTable dt = new DataTable();
 
         cmd.CommandText = "TIPOLOGIECOMMESSE_CheckOne";
-        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", Descrizione);
 
         dt = c.EseguiSpSelectParam(cmd);
         return dt.Rows.Count > 0;
     }
-    public void CRUD(string descrizione)
+    public void Insert(string descrizione)
     {
+        this.Descrizione = descrizione;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
         cmd.CommandText = "TIPOLOGIECOMMESSE_Insert";
-        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", Descrizione);
 
         c.EseguiSpCmdParam(cmd);
     }
-    public void CRUD(int codice, string descrizione)
+    public void Update(int codice, string descrizione)
     {
+        this.Descrizione = descrizione;
+        this.Codice = codice;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoCommessa", codice);
-        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", descrizione);
+        cmd.Parameters.AddWithValue("@CodiceTipoCommessa", Codice);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoCommessa", Descrizione);
 
         cmd.CommandText = "TIPOLOGIECOMMESSE_Update";
         c.EseguiSpCmdParam(cmd);
@@ -82,10 +89,12 @@ public class TIPOLOGIECOMMESSA
     }
     public DataTable Select(int codice)
     {
+        this.Codice = codice;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoCommessa", codice);
+        cmd.Parameters.AddWithValue("@CodiceTipoCommessa", Codice);
         cmd.CommandText = "TIPOLOGIECOMMESSE_TEXTBOX";
 
         return c.EseguiSpSelectParam(cmd);

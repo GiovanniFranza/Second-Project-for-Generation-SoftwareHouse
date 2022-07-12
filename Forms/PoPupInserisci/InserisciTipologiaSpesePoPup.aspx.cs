@@ -23,9 +23,7 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaSpesePoPup : System.
         }
 
         TIPOLOGIASPESA ts = new TIPOLOGIASPESA();
-
         string descrizione = txtTipologiaSpese.Text.Trim();
-        ts.Descrizione = descrizione;
 
         //Verifico se esiste
         if (ts.CheckOne(descrizione))
@@ -35,7 +33,7 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaSpesePoPup : System.
         }
 
         //Inserimento
-        ts.CRUD(descrizione);
+        ts.Insert(descrizione);
     }
 
     #endregion Eventi

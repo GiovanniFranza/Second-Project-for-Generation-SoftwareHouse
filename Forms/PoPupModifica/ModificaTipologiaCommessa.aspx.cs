@@ -38,10 +38,8 @@ public partial class Forms_PoPupModifica_ModificaTipologiaCommessa : System.Web.
         string descrizione = txtCommessa.Text;
 
         TIPOLOGIECOMMESSA tcm = new TIPOLOGIECOMMESSA();
-        tcm.Codice = codiceCommessa;
-        tcm.Descrizione = descrizione;
-        //Controlli Formali
 
+        //Controlli Formali
         if (string.IsNullOrEmpty(descrizione))
         {
             ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
@@ -57,7 +55,7 @@ public partial class Forms_PoPupModifica_ModificaTipologiaCommessa : System.Web.
         }
 
         //Update
-        tcm.CRUD(codiceCommessa, descrizione);
+        tcm.Update(codiceCommessa, descrizione);
 
     }
 }

@@ -16,46 +16,47 @@ public class TIPOLOGIASPESA
     #endregion Membri
 
     #region Costruttore
-    public TIPOLOGIASPESA()
-    {
-
-    }
+    public TIPOLOGIASPESA() { }
 
     #endregion Costruttore
 
     #region Proprietà
     public int Codice
     {
-        set { codiceTipoSpesa = value; }
+        private set { codiceTipoSpesa = value; }
         get { return codiceTipoSpesa; }
     }
-
     public string Descrizione
     {
-        set { descrizioneTipoSpesa = value; }
+        private set { descrizioneTipoSpesa = value; }
         get { return descrizioneTipoSpesa; }
     }
 
     #endregion Proprietà
 
     #region Metodi
-    public void CRUD(string descrizione)
+    public void Insert(string descrizione)
     {
+        this.Descrizione = descrizione;
+
         CONNESSIONE c = new CONNESSIONE();
         SqlCommand cmd = new SqlCommand();
 
         cmd.CommandText = "TIPOLOGIESPESE_Insert";
-        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", Descrizione);
 
         c.EseguiSpCmdParam(cmd);
     }
-    public void CRUD(int codiceTipoSpesa, string descrizione)
+    public void Update(int codiceTipoSpesa, string descrizione)
     {
+        this.Codice = codiceTipoSpesa;
+        this.Descrizione = descrizione;
+
         CONNESSIONE c = new CONNESSIONE();
         SqlCommand cmd = new SqlCommand();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", codiceTipoSpesa);
-        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
+        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", Codice);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", Descrizione);
 
         cmd.CommandText = "TIPOLOGIESPESE_Update";
         c.EseguiSpCmdParam(cmd);
@@ -63,11 +64,13 @@ public class TIPOLOGIASPESA
     }
     public bool CheckOne(string descrizione)
     {
+        this.Descrizione = descrizione;
+
         CONNESSIONE c = new CONNESSIONE();
         SqlCommand cmd = new SqlCommand();
         DataTable dt = new DataTable();
 
-        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoSpesa", Descrizione);
         cmd.CommandText = "TIPOLOGIESPESE_CheckOne";
 
         dt = c.EseguiSpSelectParam(cmd);
@@ -85,15 +88,18 @@ public class TIPOLOGIASPESA
     }
     public DataTable Select(int codice)
     {
+        this.Codice = codice;
+
         CONNESSIONE c = new CONNESSIONE();
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", codice);
+        cmd.Parameters.AddWithValue("@CodiceTipoSpesa", Codice);
         cmd.CommandText = "TIPOLOGIESPESE_TEXTBOX";
 
         return dt = c.EseguiSpSelectParam(cmd);
     }
 
     #endregion Metodi
+
 }

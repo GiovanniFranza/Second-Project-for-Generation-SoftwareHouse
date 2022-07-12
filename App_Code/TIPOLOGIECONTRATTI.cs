@@ -25,13 +25,13 @@ public class TIPOLOGIECONTRATTI
     #region Proprietà
     public int Codice
     {
-        set { codiceTipoContratto = value; }
+        private set { codiceTipoContratto = value; }
         get { return codiceTipoContratto; }
     }
 
     public string Descrizione
     {
-        set { descrizioneTipoContratto = value; }
+        private set { descrizioneTipoContratto = value; }
         get { return descrizioneTipoContratto; }
     }
 
@@ -40,33 +40,39 @@ public class TIPOLOGIECONTRATTI
     #region Metodi
     public bool CheckOne(string descrizione)
     {
+        this.Descrizione = descrizione;
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
         DataTable dt = new DataTable();
 
         cmd.CommandText = "TIPOLOGIECONTRATTI_CheckOne";
-        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", Descrizione);
         
         dt = c.EseguiSpSelectParam(cmd);
         return dt.Rows.Count > 0;
     } 
-    public void CRUD(string descrizione)
+    public void Insert(string descrizione)
     {
+        this.Descrizione = descrizione;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
         cmd.CommandText = "TIPOLOGIECONTRATTI_Insert";
-        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", descrizione);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", Descrizione);
         
         c.EseguiSpCmdParam(cmd);
     }
-    public void CRUD(int codice,string descrizione)
+    public void Update(int codice,string descrizione)
     {
+        this.Descrizione = descrizione;
+        this.Codice = codice;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoContratto", codice);
-        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", descrizione);
+        cmd.Parameters.AddWithValue("@CodiceTipoContratto", Codice);
+        cmd.Parameters.AddWithValue("@DescrizioneTipoContratto", Descrizione);
 
         cmd.CommandText = "TIPOLOGIECONTRATTI_Update";
         c.EseguiSpCmdParam(cmd);
@@ -81,10 +87,12 @@ public class TIPOLOGIECONTRATTI
     }
     public DataTable Select(int codice)
     {
+        this.Codice = codice;
+
         SqlCommand cmd = new SqlCommand();
         CONNESSIONE c = new CONNESSIONE();
 
-        cmd.Parameters.AddWithValue("@CodiceTipoContratto", codice);
+        cmd.Parameters.AddWithValue("@CodiceTipoContratto", Codice);
         cmd.CommandText = "TIPOLOGIECONTRATTI_TEXTBOX";
 
         return c.EseguiSpSelectParam(cmd);

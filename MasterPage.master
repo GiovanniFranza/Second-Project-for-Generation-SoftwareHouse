@@ -68,10 +68,10 @@
                     </li>
                     <li>
                         <div class="dropdown">
-                            <button class="dropbtn">Clienti</button>
+                            <button class="dropbtn">Azienda</button>
                             <div class="dropdown-content">
-                                <a href="InserisciClienti.aspx">Inserisci</a>
-                                <a href="ModificaClienti.aspx">Modifica</a>
+                                <a href="InserisciAzienda.aspx">Inserisci</a>
+                                <a href="ModificaAzienda.aspx">Modifica</a>
                             </div>
                         </div>
                     </li>

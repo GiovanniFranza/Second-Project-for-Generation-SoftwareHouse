@@ -41,7 +41,7 @@
 
         });
     </script>
-    <a href="Forms/PoPupModifica/ModificaTipologiaContrattiPoPup.aspx" id="popup" class="btnPopup">Modifica</a>
+    <a href="Forms/PoPupModifica/ModificaTipologiaSpesePoPup.aspx" id="popup" class="btnPopup">Modifica</a>
     <asp:GridView ID="griglia" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="griglia_SelectedIndexChanged"></asp:GridView>
     <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna" OnClick="btnAggiorna_Click" />
 

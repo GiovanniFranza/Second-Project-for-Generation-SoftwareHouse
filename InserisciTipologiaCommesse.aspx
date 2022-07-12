@@ -41,7 +41,7 @@
 
         });
     </script>
-    <a href="Forms/PoPupInserisci/InserisciTipologiaCommessaPoPup.aspx" id="popup" class="btnPopup">Modifica</a>
+    <a href="Forms/PoPupInserisci/InserisciTipologiaCommessaPoPup.aspx" id="popup" class="btnPopup">Inserisci</a>
     <asp:GridView ID="griglia" runat="server"></asp:GridView>
     <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna" OnClick="btnAggiorna_Click" />
 

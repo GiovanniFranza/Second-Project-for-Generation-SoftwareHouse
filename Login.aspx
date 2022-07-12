@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="InserisciTipologiaContratti.aspx.cs" Inherits="Default3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<!DOCTYPE html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" type="text/css" media="all" />
     <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
@@ -42,9 +43,19 @@
 
         });
     </script>
-    <a href="Forms/PoPupInserisci/InserisciTipologiaContrattiPoPup.aspx" id="popup" class="btnPopup">Inserisci</a>
-    <asp:GridView ID="griglia" runat="server"></asp:GridView>
-    <asp:Button ID="btnAggiorna" runat="server" Text="Aggiorna" OnClick="btnAggiorna_Click"/>
 
-</asp:Content>
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:TextBox ID="txtEmail" placeholder="Email" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" placeholder="Password" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <a href="Registrazione.aspx" id="popup" class="btnPopup">Registrati</a>
 
+        </div>
+    </form>
+</body>
+</html>

@@ -38,10 +38,8 @@ public partial class Forms_PoPupModifica_ModificaTipologiaContratto : System.Web
         string descrizione = txtTipologiaSpese.Text;
 
         TIPOLOGIECONTRATTI tc = new TIPOLOGIECONTRATTI();
-        tc.Codice = codiceContratto;
-        tc.Descrizione = descrizione;
-        //Controlli Formali
 
+        //Controlli Formali
         if (string.IsNullOrEmpty(descrizione))
         {
             ScriptManager.RegisterClientScriptBlock(this, GetType(), "ATTENZIONE", "alert('Dati non validi')", true);
@@ -57,7 +55,7 @@ public partial class Forms_PoPupModifica_ModificaTipologiaContratto : System.Web
         }
 
         //Update
-        tc.CRUD(codiceContratto,descrizione);
+        tc.Update(codiceContratto,descrizione);
 
     }
 }

@@ -25,7 +25,6 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaCommessaPoPup : Syst
         TIPOLOGIECOMMESSA tcm = new TIPOLOGIECOMMESSA();
 
         string descrizione = txtCommessa.Text.Trim();
-        tcm.Descrizione = descrizione;
 
         //Verifico se esiste
         if (tcm.CheckOne(descrizione))
@@ -36,6 +35,6 @@ public partial class Forms_PoPupInserisci_InserisciTipologiaCommessaPoPup : Syst
         }
 
         //Inserimento
-        tcm.CRUD(descrizione);
+        tcm.Insert(descrizione);
     }
 }

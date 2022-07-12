@@ -40,10 +40,7 @@ public partial class Forms_PoPupModifica_ModificaTipologiaSpesePoPup : System.We
         string descrizione = txtTipologiaSpese.Text.Trim();
         txtTipologiaSpese.Text = descrizione;
 
-        TIPOLOGIASPESA ts= new TIPOLOGIASPESA();
-        
-        ts.Codice = codiceTipoSpesa;
-        ts.Descrizione = descrizione;
+        TIPOLOGIASPESA ts = new TIPOLOGIASPESA();
 
         //Controlli Formali
         if (string.IsNullOrEmpty(descrizione))
@@ -61,7 +58,7 @@ public partial class Forms_PoPupModifica_ModificaTipologiaSpesePoPup : System.We
         }
         
         //Update
-        ts.CRUD(codiceTipoSpesa, descrizione);
+        ts.Update(codiceTipoSpesa, descrizione);
 
     }
 
