@@ -39,10 +39,10 @@
                     </li>
                     <li>
                         <div class="dropdown">
-                            <button class="dropbtn">Marche</button>
+                            <button class="dropbtn">Commessa</button>
                             <div class="dropdown-content">
-                                <a href="InserisciMarche.aspx">Inserisci</a>
-                                <a href="ModificaMarche.aspx">Modifica</a>
+                                <a href="InserisciTipologiaCommesse.aspx">Inserisci</a>
+                                <a href="ModificaTipologiaCommesse.aspx">Modifica</a>
                             </div>
                         </div>
 
